@@ -2,9 +2,7 @@ const fs = require("fs");
 const Sauce = require("../models/Sauce");
 
 const LIKE = 1;
-const DISLIKE = -1;
 const UNLIKE = 0;
-const UNDISLIKE = UNLIKE;
 const IMG_DIR_PATH = "images/";
 const TMP_IMG_DIR_PATH = "images/tmp/";
 

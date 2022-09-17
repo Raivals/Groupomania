@@ -19,7 +19,7 @@ try {
 }
 
 server.on("listening", () => {
-	console.log("Welcome to Piiquante 🌶");
+	console.log("Welcome to Groupomania !");
 	console.log(`Listening on port ${server.address().port} ✔`);
 });
 server.on("error", error => {

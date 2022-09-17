@@ -41,10 +41,11 @@ const apiLimiter = rateLimit({
 app.use("/api", apiLimiter);
 
 const userRoutes = require("./routes/user");
-const sauceRoutes = require("./routes/sauce");
+
 
 app.use("/api/auth", userRoutes);
-app.use("/api/sauces", sauceRoutes);
+
+
 
 // Exporter la constante pour y acceder depuis les autres fichiers
 module.exports = app;
