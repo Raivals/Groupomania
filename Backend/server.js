@@ -1,28 +1,20 @@
-const dotenv = require("dotenv");
-dotenv.config();
+const express = require("express");
+const bodyParser = require('body-parser');
+const userRoutes = require('./routes/user.routes')
+require('dotenv').config({path: './config/.env'});
+require('./config/db');
+const app = express();
 
-// Connexion à la database MongoDB asynchroniquement
-require("./database");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-// Créér et configurer l'appli express
-const app = require("./app");
 
-// Création server
-const http = require("http");
-const server = http.createServer(app);
 
-try {
-	server.listen(process.env.PORT || 3000);
-} catch (error) {
-	console.error(error);
-	process.exit(1); // L'appli ne peut pas tourner sans que le serveur backend soit allumé
-}
+// routes
+app.use('/api/user', userRoutes);
 
-server.on("listening", () => {
-	console.log("Welcome to Groupomania !");
-	console.log(`Listening on port ${server.address().port} ✔`);
-});
-server.on("error", error => {
-	console.error(error);
-	process.exit(1);
-});
+
+// server
+app.listen(process.env.PORT, () => {
+    console.log(`Listening on port ${process.env.PORT}`);
+})
