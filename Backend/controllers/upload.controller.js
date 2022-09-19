@@ -4,6 +4,7 @@ const { promisify } = require("util");
 const pipeline = promisify(require("stream").pipeline);
 const { uploadErrors } = require("../utils/errors.utils");
 
+//  Souci Upload Image
 module.exports.uploadProfil = async (req, res) => {
   try {
     if (
@@ -11,7 +12,7 @@ module.exports.uploadProfil = async (req, res) => {
       req.file.detectedMimeType !== "image/png" &&
       req.file.detectedMimeType !== "image/jpeg"
     )
-      throw Error("invalid file");
+      throw Error ("invalid file");
 
     if (req.file.size > 500000) throw Error("max size");
   } catch (err) {
@@ -23,7 +24,7 @@ module.exports.uploadProfil = async (req, res) => {
   await pipeline(
     req.file.stream,
     fs.createWriteStream(
-      `${__dirname}/../client/public/uploads/profil/${fileName}`
+      `${__dirname}/../client/public/uploads/profil/${fileName}`,
     )
   );
 
@@ -35,6 +36,7 @@ module.exports.uploadProfil = async (req, res) => {
     )
     .then((docs) => res.status(201).json(docs))
     .catch((err) => res.status(500).json({ message: err }));
+    
   } catch (err) {
     return res.status(500).send({ message: err });
   }
