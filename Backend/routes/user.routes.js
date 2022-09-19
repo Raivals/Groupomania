@@ -1,24 +1,20 @@
 const router = require("express").Router();
 const authController = require("../controllers/auth.controller");
 const userController = require("../controllers/user.controller");
-const uploadController = require('../controllers/upload.controller');
-const multer = require("multer");
-const upload = multer();
+const multer = require("../middleware/multer.midd");
+const {checkUser} = require("../middleware/auth.middleware")
+
 
 // auth
 router.post("/register", authController.signUp);
 router.post("/login", authController.signIn);
 router.get("/logout", authController.logout);
 
-// user DB
-router.get("/", userController.getAllUsers);
-router.get("/:id", userController.userInfo);
-router.put("/:id", userController.updateUser);
-router.delete("/:id", userController.deleteUser);
-router.patch("/follow/:id", userController.follow);
-router.patch("/unfollow/:id", userController.unfollow);
-
-// upload
-router.post("/upload", upload.single("file"), uploadController.uploadProfil);
+// user 
+router.get("/",checkUser, userController.getAllUsers);
+router.get("/:id",checkUser, userController.getOneUser);
+router.put("/:id",checkUser, userController.updateUser);
+router.delete("/:id",checkUser, userController.deleteUser);
+router.post("/upload",checkUser, multer, userController.uploadProfil);
 
 module.exports = router;

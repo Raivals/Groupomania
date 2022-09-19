@@ -1,18 +1,18 @@
 const router = require('express').Router();
 const postController = require('../controllers/post.controller');
-const multer = require("multer");
-const upload = multer();
+const multer = require("../middleware/multer.midd");
+const {checkUser} = require("../middleware/auth.middleware")
 
-router.get('/', postController.readPost);
-router.post('/', upload.single("file"), postController.createPost);
-router.put('/:id', postController.updatePost);
-router.delete('/:id', postController.deletePost);
-router.patch('/like-post/:id', postController.likePost);
-router.patch('/unlike-post/:id', postController.unlikePost);
+router.get('/',checkUser, postController.readPost);
+router.post('/',checkUser, multer, postController.createPost);
+router.put('/:id',checkUser, multer, postController.updatePost);
+router.delete('/:id',checkUser, postController.deletePost);
+router.patch('/like-post/:id',checkUser, postController.likePost);
+router.patch('/unlike-post/:id',checkUser, postController.unLikePost);
 
-// Commentaires
-router.patch('/comment-post/:id', postController.commentPost);
-router.patch('/edit-comment-post/:id', postController.editCommentPost);
-router.patch('/delete-comment-post/:id', postController.deleteCommentPost);
+// comments
+router.patch('/comment-post/:id',checkUser, postController.commentPost);
+router.patch('/edit-comment-post/:id',checkUser, postController.editCommentPost);
+router.patch('/delete-comment-post/:id',checkUser, postController.deleteCommentPost);
 
 module.exports = router;
