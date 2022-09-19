@@ -1,5 +1,6 @@
 const multer = require('multer');
 
+
 const MIME_TYPES = {
   'image/jpg': 'jpg',
   'image/jpeg': 'jpg',
@@ -14,7 +15,21 @@ const storage = multer.diskStorage({
     const name = file.originalname.split(' ').join('_');
     const extension = MIME_TYPES[file.mimetype];
     callback(null, name + Date.now() + '.' + extension);
-  }
+  } 
 });
 
-module.exports = multer({storage: storage}).single('file');
+const fileFilter = (req, file, callback) => {
+  const extension = MIME_TYPES[file.mimetype];
+
+  if(!extension)
+    return callback(
+      Error(
+        "Image invalide, extension non autorisée"
+      )
+    );
+  callback(null, true);
+
+};
+
+
+module.exports = multer({storage: storage, fileFilter}).single('file');
