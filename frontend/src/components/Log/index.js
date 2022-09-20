@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import SigninForm from './SigninForm';
 import SignupForm from './SignupForm';
 
-const Log = () => {
-  const [signUpModal, setSignUpModal]  = useState(true); 
-  const [signInModal, setSignInModal]  = useState(false); 
+const Log = ( props ) => {
+  //affichage conditionnel avec hooks + props
+  const [signUpModal, setSignUpModal]  = useState(props.signup); 
+  const [signInModal, setSignInModal]  = useState(props.signin); 
 
   const handleModals = (event) => {
     if (event.target.id === "register") {
@@ -39,7 +40,7 @@ const Log = () => {
             {signInModal && <SigninForm />}
         </div>
     </div>
-  )
-}
+  );
+};
 
 export default Log
