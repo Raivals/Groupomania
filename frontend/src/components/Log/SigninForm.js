@@ -24,12 +24,15 @@ const SigninForm = () => {
       .then((res) => {
         if (res.data.errors) {
           emailError.innerHTML = res.data.errors.email;
-          passwordError.innerHTML = res.data.erros.password;
+          passwordError.innerHTML = res.data.errors.password;
         } else {
           // considéré comme connecté
           window.location = '/';
         }
       })
+      .catch((err) => {
+      console.log(err)
+      });
   };
   return (
     <form action='' onSubmit={handleLogin} id="ssign-up-form">
