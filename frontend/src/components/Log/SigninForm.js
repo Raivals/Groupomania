@@ -10,8 +10,8 @@ const SigninForm = () => {
   const handleLogin = (event) => {
     // Ne pas rechargert  la page
     event.preventDefault();
-    const emailError = document.querySelector('.email.error');
-    const passwordError = document.querySelector('.password.error');
+    const emailError = document.useRef('.email.error');
+    const passwordError = document.useRef('.password.error');
     axios({
       method: "post",
       url: `${process.env.REACT_APP_API_URL}api/user/login`,
