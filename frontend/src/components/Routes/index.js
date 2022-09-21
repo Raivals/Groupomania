@@ -13,6 +13,6 @@ const index = () => {
         </Routes>
     </Router>
   )
-}
+};
 
 export default index

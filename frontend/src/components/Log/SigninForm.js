@@ -10,7 +10,26 @@ const SigninForm = () => {
   const handleLogin = (event) => {
     // Ne pas rechargert  la page
     event.preventDefault();
-    
+    const emailError = document.querySelector('.email.error');
+    const passwordError = document.querySelector('.password.error');
+    axios({
+      method: "post",
+      url: `${process.env.REACT_APP_API_URL}api/user/login`,
+      withCredentials: true,
+      data: {
+        email,
+        password,
+      },
+    })
+      .then((res) => {
+        if (res.data.errors) {
+          emailError.innerHTML = res.data.errors.email;
+          passwordError.innerHTML = res.data.erros.password;
+        } else {
+          // considéré comme connecté
+          window.location = '/';
+        }
+      })
   };
   return (
     <form action='' onSubmit={handleLogin} id="ssign-up-form">
