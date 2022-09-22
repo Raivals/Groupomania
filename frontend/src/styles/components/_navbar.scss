@@ -7,7 +7,7 @@ nav {
   z-index: 10;
   top: 0;
 
-  @media screen and(max-width: 1251px) {
+  @media screen and (max-width: 1251px) {
     padding: 0 20px;
   }
 
@@ -39,7 +39,8 @@ nav {
       h3 {
         transform: translate(15px, 2px);
         font-size: 1.5rem;
-        font-family: $font-3;
+        font-family: $font-1;
+        color: $color-1;
       }
       img {
         height: 26px;
@@ -58,12 +59,12 @@ nav {
       .welcome {
         transform: translateY(2px);
 
-        @media screen and(max-width: 590px) {
+        @media screen and (max-width: 590px) {
           display: none;
         }
         
         h5 {
-          font-family: $font-3;
+          font-family: $font-1;
         }
       }
       
