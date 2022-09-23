@@ -5,6 +5,7 @@ import { UidContext } from './AppContext';
 import Logout from './Log/Logout';
 import { useSelector } from 'react-redux';
 
+
 const  Navbar = () => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
@@ -34,7 +35,7 @@ const  Navbar = () => {
             <li></li>
             <li>
               <NavLink exact to="/profil">
-              <img src="./img/icons/login.svg" alt="login"/>
+                <img src="./img/icons/login.jpg" alt="login"/>
               </NavLink>
             </li>
           </ul>
