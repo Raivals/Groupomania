@@ -4,9 +4,11 @@ import logo from '../assets/img/icons/logo.jpg';
 import login from '../assets/img/icons/login.jpg';
 import { UidContext } from './AppContext';
 import Logout from './Log/Logout';
+import { useSelector } from 'react-redux';
 
 const  Navbar = () => {
   const uid = useContext(UidContext);
+  const userData = useSelector((state) => state.userReducer);
   return (
     <nav>
       <div className='nav-container'>
@@ -23,7 +25,7 @@ const  Navbar = () => {
             <li></li>
             <li className='welcome'>
               <NavLink exact to="/profil">
-                <h5>Bienvenue 'valeur dynamique'</h5>
+                <h5>Bienvenue {userData.pseudo}</h5>
               </NavLink>
             </li>
             <Logout />
@@ -43,4 +45,4 @@ const  Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
