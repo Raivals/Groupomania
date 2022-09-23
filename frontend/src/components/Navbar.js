@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/img/icons/logo.jpg';
-import login from '../assets/img/icons/login.jpg';
 import { UidContext } from './AppContext';
 import Logout from './Log/Logout';
 import { useSelector } from 'react-redux';
@@ -35,7 +34,7 @@ const  Navbar = () => {
             <li></li>
             <li>
               <NavLink exact to="/profil">
-              <img src={login} alt="login"/>
+              <img src="./img/icons/login.svg" alt="login"/>
               </NavLink>
             </li>
           </ul>

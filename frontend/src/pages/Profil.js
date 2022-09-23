@@ -3,6 +3,7 @@ import Log from '../components/Log';
 import { UidContext } from '../components/AppContext';
 // affichage image pb avec svg ?
 import image from '../assets/img/login.jpg'
+import UpdateProfil from '../components/Profil/UpdateProfil';
 const Profil = () => {
 // Obteniir l'id utilisateur si celui ci est connecté
 const uid = useContext(UidContext);
@@ -10,7 +11,7 @@ const uid = useContext(UidContext);
   return (
     <div className='profil-page'>
     {uid ? (
-      <h1>UPDATE PAGE</h1>
+      <UpdateProfil />
     ) : (
 
       <div className='log-container'>
