@@ -6,8 +6,8 @@ export const ADD_POST = "ADD_POST";
 export const LIKE_POST ="LIKE_POST"
 export const UNLIKE_POST ="UNLIKE_POST"
 
-
-export const getPosts = () => {
+// Get post réçoit un numéro (pour infinite scroll)
+export const getPosts = (num) => {
     return (dispatch) => {
         return axios({
             method: "get",
@@ -15,7 +15,8 @@ export const getPosts = () => {
             withCredentials : true,
         })
         .then((res) => {
-            dispatch({ type: GET_POSTS, payload: res.data })
+            const array = res.data.slice(0, num)  
+            dispatch({ type: GET_POSTS, payload: array })
         })
         .catch((err) => console.log(err))
     };
