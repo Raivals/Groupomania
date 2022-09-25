@@ -38,7 +38,7 @@ export const likePost = (postId, userId) => {
     return (dispatch) => {
       return axios({
         method: "patch",
-        url: `${process.env.REACT_APP_API_URL}api/post/like-post` + postId,
+        url: `${process.env.REACT_APP_API_URL}api/post/like-post/` + postId,
         data: { id: userId },
         withCredentials : true,
       })
@@ -53,7 +53,7 @@ export const likePost = (postId, userId) => {
     return (dispatch) => {
       return axios({
         method: "patch",
-        url: `${process.env.REACT_APP_API_URL}api/post/unlike-post` + postId,
+        url: `${process.env.REACT_APP_API_URL}api/post/unlike-post/` + postId,
         data: { id: userId },
         withCredentials : true,
       })
