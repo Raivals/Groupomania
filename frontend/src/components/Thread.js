@@ -9,6 +9,7 @@ const Thread = () => {
   const [count, setCount] = useState(5);
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.postReducer);
+  
   // Savoir si on se trouve en bas de page
   const loadMore = () => {
     if (window.innerHeight + document.documentElement.scrollTop + 1 > document.scrollingElement.scrollHeight) {
