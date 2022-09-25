@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { dateParser, isEmpty } from '../Utils';
 import {  FaSpinner } from 'react-icons/fa';
+import LikeButton from './LikeButton';
 const Card = ({ post }) => {
   // Tant qu'on a pas la data de la card => icone chargement
   const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +70,7 @@ const Card = ({ post }) => {
                             <img src='./img/icons/message1.svg' alt='comment' />
                             <span>{post.comment}</span>
                         </div>
-                        <h6>Like button</h6>
+                        <LikeButton post={post} />
                         <img src='./img/icons/share.svg' alt='share' />
                     </div>
                 </div>
