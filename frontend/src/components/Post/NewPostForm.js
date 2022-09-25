@@ -66,8 +66,8 @@ const NewPostForm = () => {
 
  useEffect(() => {
     if (!isEmpty(userData)) setIsLoading(false);
-    handleVideo();
-  }, [userData, message, video])
+    
+  }, [userData, message, video,])
 
   return (
     <div className='post-container'>
