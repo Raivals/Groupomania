@@ -1,36 +1,73 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty, timestampParser } from '../Utils';
 import {  FaSpinner } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import { addPost, getPosts } from "../../actions/post.actions";
 
 const NewPostForm = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
+  // image affiché dans le front 
   const [postPicture, setPostPicture] = useState(null);      
   const [video, setVideo] = useState('');
+  // image passé à la dase de donnée
   const [file, setFile] = useState();
   const userData = useSelector((state) => state.userReducer);
- 
-  const handlePicture = () => {
+  const dispatch = useDispatch();
 
+
+  const handlePost = async () => {
+    if (message || postPicture || video) {
+        const data = new FormData();
+        data.append('posterId', userData._id);
+        data.append('message', message);
+        if (file) data.append("file", file);
+        data.append('video', video);
+
+        //Envoie les infos au back
+        await dispatch(addPost(data));
+        dispatch(getPosts());
+        cancelPost();
+    } else {
+        alert("Veuillez entrer un message")
+    }
+};
+  const handlePicture = (e) => {
+    setPostPicture(URL.createObjectURL(e.target.files[0]));
+    setFile(e.target.files[0]);
+    setVideo('');
   };
 
-  const handlePost = () => {
-
-  };
-
+  
   const cancelPost = () => {
     setMessage('');
     setPostPicture('');
     setVideo('');
     setFile('');
   };
-
+// Lecture d'une vidéo youtube sur le réseau 
+  const handleVideo = () => {
+    let findLink = message.split(" ");
+    for (let i = 0; i < findLink.length; i++) {
+        if (
+            findLink[i].includes('https://www.yout') || 
+            findLink[i].includes('https://yout')
+            ) {
+            let embed = findLink[i].replace('watch?v=', "embed/");
+            setVideo(embed.split('&')[0]);
+            findLink.splice(i, 1);
+            setMessage(findLink.join(" "));
+            setPostPicture('');
+        }
+    }
+  };
+  handleVideo();
 
  useEffect(() => {
     if (!isEmpty(userData)) setIsLoading(false);
-  }, [userData]) 
+    handleVideo();
+  }, [userData, message, video])
 
   return (
     <div className='post-container'>
@@ -65,7 +102,7 @@ const NewPostForm = () => {
                             </div>
                             <div className='content'>
                                <p>{message}</p> 
-                               <img src={postPicture} alt='postimg'/>
+                               <img src={postPicture} alt=''/>
                                {video && (
                                 <iframe
                                     src={video}
