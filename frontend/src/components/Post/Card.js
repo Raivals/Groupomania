@@ -49,6 +49,7 @@ const Card = ({ post }) => {
                     />
                 </div>
                 <div className='card-right'>
+                {/* problème d'affichage du pseudo dans le feed d'actualité */}
                     <div className='card-header'>
                         <div className='pseudo'>
                             <h3>
