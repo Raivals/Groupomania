@@ -5,11 +5,13 @@ import {  FaSpinner } from 'react-icons/fa';
 import LikeButton from './LikeButton';
 import { updatePost } from '../../actions/post.actions';
 import DeleteCard from './DeleteCard';
+import CardComments from './CardComment';
 const Card = ({ post }) => {
   // Tant qu'on a pas la data de la card => icone chargement
   const [isLoading, setIsLoading] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
   const [textUpdate, setTextUpdate] = useState(null);
+  const [showComments, setShowComments] = useState(false);
   const usersData = useSelector((state) => state.userReducer);
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
@@ -90,22 +92,36 @@ const Card = ({ post }) => {
                             title={post._id}
                         ></iframe>
                     )}
-                    {userData._id === post.posterId && (
-                        <div className='button-container'>
-                            <div onClick={() => setIsUpdated(!isUpdated)}>
-                                <img src='./img/icons/edit.svg' alt='edit'/>
+                    {userData._id === post.posterId && userData.admin === false && (
+                        <div className="button-container">
+                            <div onClick={() => setIsUpdated(!isUpdated/* permet lors du click d'avoir le btn et de l'enlever*/)}>
+                                <img src="./img/icons/edit.svg" alt="edit"/>
+                            </div>
+                            <DeleteCard id={post._id} />
+                        </div>
+                    )}
+
+                    {userData.admin  === true &&(
+                        <div className="button-container">
+                            <div onClick={() => setIsUpdated(!isUpdated/* permet lors du click d'avoir le btn et de l'enlever*/)}>
+                                <img src="./img/icons/edit.svg" alt="edit"/>
                             </div>
                             <DeleteCard id={post._id} />
                         </div>
                     )}
                     <div className='card-footer'>
                         <div className='comment-icon'>
-                            <img src='./img/icons/message1.svg' alt='comment' />
-                            <span>{post.comment}</span>
+                            <img 
+                                onClick={() => setShowComments(!showComments)} 
+                                src='./img/icons/message1.svg' 
+                                alt='comment' 
+                            />
+                            <span>{post.comments.length}</span>
                         </div>
                         <LikeButton post={post} />
                         <img src='./img/icons/share.svg' alt='share' />
                     </div>
+                    {showComments && <CardComments post={post} />}
                 </div>
             </>
         )}

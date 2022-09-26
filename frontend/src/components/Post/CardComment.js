@@ -16,7 +16,7 @@ const CardComments = ({post})=> {
         if (text) {
             dispatch(addComment(post._id, userData._id, text, userData.pseudo))
             .then(() => dispatch(getPosts()))
-            //remet la vriable du commentaire vide pour écrire à nouveau
+            //remet la variable du commentaire vide pour écrire à nouveau
             .then(() => setText(''))
         }
     }
@@ -36,7 +36,7 @@ const CardComments = ({post})=> {
                     <div className="left-part">
                         <img //lorsque l'on click sur l'image "comment" on a les commentaires qui s'affiche
                             src={
-                            !isEmpty(usersData[0]) &&
+                            !isEmpty(usersData) &&
                             usersData
                                 .map((user) => {
                                 if (user._id === comment.commenterId) return user.picture;
@@ -55,7 +55,7 @@ const CardComments = ({post})=> {
                             <span>{timestampParser(comment.timestamp)}</span>
                         </div>
                         <p>{comment.text}</p>
-                        <EditDeleteComment comment={comment} postId={post._id}/>
+                      <EditDeleteComment comment={comment} postId={post._id}/>
                     </div>
                 </div>
             )
