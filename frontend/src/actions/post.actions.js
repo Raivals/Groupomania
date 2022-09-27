@@ -45,8 +45,10 @@ export const addPost = (data) => {
         .then((res) => {
           if (res.data.errors) {
             dispatch({ type: GET_POSTS_ERRORS, payload: res.data.errors })
+          } else {
+            dispatch({ type: GET_POSTS_ERRORS, payload: ''});
           }
-        })
+        });
         
   };
 }

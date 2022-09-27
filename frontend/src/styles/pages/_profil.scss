@@ -124,9 +124,15 @@
     .update-container {
       display: grid;
       grid-template-columns: 50% 50%;
+      padding-top: 30px;
   
       @media screen and (max-width: 700px) {
         grid-template-columns: 1fr;
+      }
+
+      @media screen and (max-width: 375px) {
+        grid-template-columns: 1fr;
+        padding-left: 6%;
       }
   
       > div {

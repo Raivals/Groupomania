@@ -3,7 +3,8 @@ import axios from "axios";
 export const GET_USER ="GET_USER";
 export const UPLOAD_PICTURE = "UPLOAD_PICTURE";
 export const UPDATE_BIO = "UPDATE_BIO";
-
+// Errors
+export const GET_USER_ERRORS = "GET_USER_ERRORS"
 
 //récupérer les informations des utilisateurs
 export const getUser = (uid) => {
@@ -32,6 +33,10 @@ export const uploadPicture = (data, id) => {
       withCredentials : true,
     })
       .then((res) => {
+        if (res.data.errors) {
+          dispatch({ type : GET_USER_ERRORS, payload: res.data.errors})
+        } else {
+          dispatch({ type : GET_USER_ERRORS, payload: ''})
           return axios
           ({
             method: "get",
@@ -40,7 +45,8 @@ export const uploadPicture = (data, id) => {
           })
             .then((res) => {
               dispatch({ type: UPLOAD_PICTURE, payload: res.data.picture });
-            });  
+            }); 
+          } 
       })
       .catch((err) => console.log(err));
   };
