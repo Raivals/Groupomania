@@ -36,7 +36,7 @@ const CardComments = ({post})=> {
                     <div className="left-part">
                         <img //lorsque l'on click sur l'image "comment" on a les commentaires qui s'affiche
                             src={
-                            !isEmpty(usersData) &&
+                            !isEmpty(usersData[0]) &&
                             usersData
                                 .map((user) => {
                                 if (user._id === comment.commenterId) return user.picture;

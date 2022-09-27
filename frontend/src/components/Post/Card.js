@@ -59,7 +59,7 @@ const Card = ({ post }) => {
                                         if (user._id === post.posterId) return user.pseudo;
                                         else return null
                                     })
-                                    .join(" ")
+                                    .join("")
                                 }
                             </h3>
                         </div>
