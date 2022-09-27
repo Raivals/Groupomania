@@ -55,7 +55,7 @@ const SignInForm = ()=> {
         <input type="password"
           name="password"
           id="password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPassword (e.target.value)}
           value={password}
         />
         <div className="password error"></div>

@@ -14,6 +14,7 @@ const NewPostForm = () => {
   // image passé à la dase de donnée
   const [file, setFile] = useState();
   const userData = useSelector((state) => state.userReducer);
+  const error = useSelector((state) => state.errorReducer.postError);
   const dispatch = useDispatch();
 
 
@@ -134,6 +135,8 @@ const NewPostForm = () => {
                             <button onClick={() => setVideo("")}>Supprimer video</button>
                         )}
                     </div>
+                    {!isEmpty(error.format) && <p>{error.format}</p>}
+                    {!isEmpty(error.maxSize) && <p>{error.maxSize}</p>}
                     <div className='btn-send'>
                     {/* afficher uniquement "annuler message" si un post est déjà en train d'être créé */}
                     {message || postPicture || video.length > 20 ? (

@@ -14,6 +14,9 @@ export const ADD_COMMENT = "ADD_COMMENT";
 export const EDIT_COMMENT = "EDIT_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 
+// Errors
+export const GET_POSTS_ERRORS = "GET_POSTS_ERRORS";
+
 // Get post réçoit un numéro (pour infinite scroll)
 export const getPosts = (num) => {
   return (dispatch) => {
@@ -39,6 +42,12 @@ export const addPost = (data) => {
           data: data,
           withCredentials : true,
       })
+        .then((res) => {
+          if (res.data.errors) {
+            dispatch({ type: GET_POSTS_ERRORS, payload: res.data.errors })
+          }
+        })
+        
   };
 }
 
