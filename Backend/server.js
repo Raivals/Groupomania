@@ -4,7 +4,7 @@ const helmet = require ('helmet');
 
 const userRoutes = require('./routes/user.routes');
 const postRoutes = require('./routes/post.routes');
-require('dotenv').config({path: './config/.env'});
+require('dotenv').config({path: '.env'});
 require('./config/db');
 const {checkUser, requireAuth} = require('./middleware/auth.middleware');
 const cors = require('cors');
