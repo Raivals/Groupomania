@@ -42,7 +42,7 @@ export const addPost = (data) => {
       return axios({
           method: "post",
           url: `${process.env.REACT_APP_API_URL}api/post/`,
-          data: data,
+          data: data, 
           withCredentials : true,
       })
         .then((res) => {
