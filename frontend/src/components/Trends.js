@@ -24,7 +24,7 @@ const Trends = () => {
   return (
     <div className="trending-container">
       <h4>Trending</h4>
-      <div exact to="/ ">
+      <div to="/">
         <ul>
           {trendList.length &&
             trendList.map((post) => {

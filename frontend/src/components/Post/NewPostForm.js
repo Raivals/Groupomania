@@ -76,7 +76,7 @@ const NewPostForm = () => {
             <FaSpinner icon="fas fa-spinner fa-pulse" className='fas fa-spinner fa-pulse'/>
         ) : (
            <>
-            <NavLink exact to='/profil'> 
+            <NavLink to='/profil'> 
                 <div className='user-info'>
                     <img src={userData.picture} alt='user-img' />
                 </div>
