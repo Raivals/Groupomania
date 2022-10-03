@@ -88,6 +88,8 @@ export const unlikePost = (postId, userId) => {
   };
 };
 
+// Update Post
+
 export const updatePost = (postId, message) => {
   return (dispatch) => {
     return axios({
@@ -102,6 +104,8 @@ export const updatePost = (postId, message) => {
       .catch((err) => console.log(err));
   };
 };
+
+// Delete post
 
 export const deletePost = (postId) => {
   return (dispatch) => {
@@ -135,6 +139,8 @@ export const addComment = (postId, commenterId, text, commenterPseudo) => {
   };
 };
 
+// Modif comment
+
 export const editComment = (postId, commentId, text) => {
   return (dispatch) => {
     return axios({
@@ -149,6 +155,8 @@ export const editComment = (postId, commentId, text) => {
       .catch((err) => console.log(err));
   };
 };
+
+// Delete comment 
 
 export const deleteComment = (postId, commentId) => {
   return (dispatch) => {
