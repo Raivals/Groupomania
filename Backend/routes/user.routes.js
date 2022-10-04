@@ -17,4 +17,5 @@ router.put("/:id",checkUser, userController.updateUser);
 router.delete("/:id",checkUser, userController.deleteUser);
 router.post("/upload",checkUser, multer, userController.uploadProfil);
 
+// Exporter le router
 module.exports = router;

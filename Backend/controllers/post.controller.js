@@ -3,6 +3,14 @@ const UserModel = require('../models/user.model');
 const ObjectID = require('mongoose').Types.ObjectId; // vérifier que le paramêtre existe déjà dans la BDD
 const fs = require('fs');
 
+/**
+ * Affichage des posts dans le fil d'actualité du plus récent au plus ancien
+ * 
+ * Si il y a une erreur d'affichage des posts, renvoyer une erreur "Cannot get data" au client.
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 exports.readPost = (req, res, next) => {
     PostModel.find((error, docs) => {
         if(!error) {
@@ -13,6 +21,15 @@ exports.readPost = (req, res, next) => {
     }).sort({ createdAt: -1 }); // tri du plus récent au plus ancien post
 }
 
+/**
+ * Création d'un post, récupération de l'id du poster et de l'image de profil en dynamique, initialisation des likes et commentaires.
+ * 
+ * Si tout se passe bien, renvoyer un code 201 "création" au client.
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns Si il y a une erreur, renvoyer un code d'erreur 400 au client.
+ */
 exports.createPost = async (req, res, next) => {
     const newPost = new PostModel( {
         posterId: req.body.posterId,
@@ -32,6 +49,15 @@ exports.createPost = async (req, res, next) => {
     }
 }
 
+/**
+ * Mise à jour d'un post déjà créé, récupération de l'object id pour vérifier si le post appartient bien à l'utilisateur pour permettre sa modification.
+ * 
+ * Si tout se passe bien , autoriser la modification du post.
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns Si object Id n'est pas le bon, renvoyer une erreur 400 'ID unknown'.
+ */
 exports.updatePost = (req, res, next) => {
     if (!ObjectID.isValid(req.params.id)) {
         return res.status(400).json('ID Unknown : ' + req.params.id);
@@ -58,6 +84,15 @@ exports.updatePost = (req, res, next) => {
     }
 }
 
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et le post.
+ * 
+ * Si tout se passe bien, autorisé la suppression du post et image si il y a.
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.deletePost = (req, res, next) => {
     if (!ObjectID.isValid(req.params.id)) {
         return res.status(400).json('ID Unknown : ' + req.params.id);
@@ -78,6 +113,15 @@ exports.deletePost = (req, res, next) => {
     }
 }
 
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et le like
+ * 
+ * Si tout se passe bien, permettre le like
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.likePost = async (req, res, next) => {
     if (!ObjectID.isValid(req.params.id)) {
         return res.status(400).json('ID Unknown : ' + req.params.id);
@@ -106,6 +150,15 @@ exports.likePost = async (req, res, next) => {
     }
 }
 
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et le unlike.
+ * 
+ * Si tout se passe bien, permettre le unlike.
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.unLikePost = async (req, res, next) => {
     if (!ObjectID.isValid(req.params.id)) {
         return res.status(400).json('ID Unknown : ' + req.params.id);
@@ -133,6 +186,14 @@ exports.unLikePost = async (req, res, next) => {
     }
 }
 
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et le commentaire.
+ * 
+ * Si tout se passe bien, permettre le commentaire.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.commentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
       return res.status(400).send("ID unknown : " + req.params.id);
@@ -158,6 +219,14 @@ exports.commentPost = (req, res) => {
     }
 };
 
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et la modif du commentaire'.
+ * 
+ * Si tout se passe bien, permettre la modification du commentaire.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.editCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
       return res.status(400).send("ID unknown : " + req.params.id);
@@ -181,6 +250,15 @@ exports.editCommentPost = (req, res) => {
     }
 };
 
+
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et la suppression commentaire'.
+ * 
+ * Si tout se passe bien, permettre la msuppression du commentaire.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.deleteCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
       return res.status(400).send("ID unknown : " + req.params.id);

@@ -1,3 +1,5 @@
+// Erreurs possible lors de la création d'un compte
+
 module.exports.signUpErrors = (err) => {
   let errors = { pseudo: "", email: "", password: "" };
 
@@ -18,6 +20,7 @@ module.exports.signUpErrors = (err) => {
   return errors;
 };
 
+// Erreurs possible lors de la connexion
 module.exports.signInErrors = (err) => {
   let errors = { email: '', password: ''}
 
@@ -30,6 +33,7 @@ module.exports.signInErrors = (err) => {
   return errors;
 }
 
+// Erreur possible lors de l'upload d'une image
 module.exports.uploadErrors = (err) => {
   let errors = { format: '', maxSize: ""};
 

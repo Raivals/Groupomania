@@ -39,9 +39,9 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// play function before save into display: 'block',
+// jouer la fonction avant de la savegardé en display: 'block',
 userSchema.pre("save", async function(next) {
-  const salt = await bcrypt.genSalt();
+  const salt = await bcrypt.genSalt(); // salage du mdp 
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });

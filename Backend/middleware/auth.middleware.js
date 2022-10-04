@@ -1,6 +1,14 @@
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/user.model");
 
+/**
+ *  Vérifie le token reçue en front et permet uniquement à dess requêtes authentifié de réussir
+ * 
+ * Si une erreur se déclare, envoyer une réponse avec un code 401 (non authorisé) au client.
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 exports.checkUser = (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
@@ -21,6 +29,14 @@ exports.checkUser = (req, res, next) => {
   }
 };
 
+/**
+ *  Vérifie si le token si un token a été attribué à un client 
+ * 
+ * Si ilm n'y a pas de token, renvoyer une erreur 200 au client "No token"
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 exports.requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
