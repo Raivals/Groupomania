@@ -4,7 +4,6 @@ import Home from '../../pages/Home';
 import Profil from '../../pages/Profil';
 import Navbar from '../Navbar';
 
-// Structure de la NavBar sur la page home & profil
 
 const index = () => {
   return (

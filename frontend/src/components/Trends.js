@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTrends } from "../actions/post.actions";
 import { isEmpty } from "./Utils";
 
-// Partie Trending
 
 const Trends = () => {
   const posts = useSelector((state) => state.allPostsReducer);

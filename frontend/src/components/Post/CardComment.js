@@ -4,8 +4,6 @@ import { addComment, getPosts } from "../../actions/post.actions";
 import { isEmpty, timestampParser } from "../Utils";
 import EditDeleteComment from "./EditDeleteComment";
 
-// Création de la fonctionnalité permmetant de commenter un post
-
 const CardComments = ({post})=> {
     const [text, setText] = useState("")
     const usersData = useSelector((state) => state.usersReducer)

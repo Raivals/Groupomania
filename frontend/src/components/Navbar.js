@@ -5,7 +5,6 @@ import { UidContext } from './AppContext';
 import Logout from './Log/Logout';
 import { useSelector } from 'react-redux';
 
-// Description de la NavBar
 
 const  Navbar = () => {
   const uid = useContext(UidContext);

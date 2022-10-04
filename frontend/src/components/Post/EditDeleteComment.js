@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteComment, editComment } from "../../actions/post.actions";
 import { UidContext } from "../AppContext";
 
-// Editer ou supprimer un commentaire
-
 const EditDeleteComment = ({ comment, postId})=> {
     const [isAuthor, setIsAuthor] = useState(false);
     const [edit, setEdit] = useState(false);

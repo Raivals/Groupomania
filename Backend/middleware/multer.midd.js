@@ -1,4 +1,3 @@
-// Configuration de multer pour accepter les fichiers entrants (Gestion de fichier)
 const multer = require('multer');
 
 
@@ -7,7 +6,7 @@ const MIME_TYPES = {
   'image/jpeg': 'jpg',
   'image/png': 'png'
 };
-// Création d'un objet de configuration (savoir où vont être stocké les images)
+// pour savoir ou stocker les images
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, "uploads");

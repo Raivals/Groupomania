@@ -6,13 +6,7 @@ export const UPDATE_BIO = "UPDATE_BIO";
 // Errors
 export const GET_USER_ERRORS = "GET_USER_ERRORS"
 
-/**
- * récupérer les informations des utilisateurs
- * 
- * si tout se passe bien, récuperer les infos via appel API méthode get
- * @param {*} uid 
- * @returns Si il y a une erreur, catch l'erreur et log l'erreur en question.
- */
+//récupérer les informations des utilisateurs
 export const getUser = (uid) => {
     return (dispatch) => {
       return axios
@@ -28,14 +22,7 @@ export const getUser = (uid) => {
     };
   };
 
-/**
- * Permet d'upload une image pour afficher la photo de profil
- * 
- * si tout se passe bien, upload l'image via appel API méthode post
- * @param {*} data 
- * @param {*} id 
- * @returns Si il y a une erreur, catch l'erreur et log l'erreur en question.
- */
+//récupère tous ce qui est mis dans data dans UploadImg
 export const uploadPicture = (data, id) => {
   return (dispatch) => {
     return axios
@@ -64,15 +51,6 @@ export const uploadPicture = (data, id) => {
       .catch((err) => console.log(err));
   };
 };
-
-/**
- * Mise à jour de la biographie d'un utilisateur 
- * 
- * si tout se passe bien, mettre à jour la bio via appel API méthode put
- * @param {*} userId 
- * @param {*} bio 
- * @returns Si il y a une erreur, catch l'erreur et log l'erreur en question.
- */
 
 export const updateBio = (userId, bio) => {
   return (dispatch) => {
