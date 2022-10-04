@@ -1,6 +1,6 @@
 import { GET_TRENDS } from "../actions/post.actions";
 
-// Récupération des trends
+// Reducers des trends Reducers = faire une mise à jour d'un state => prend l'ancien state et une action pour renvoyer le prochain state.
 
 const initialState = {};
 

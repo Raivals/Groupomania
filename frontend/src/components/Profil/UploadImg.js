@@ -8,13 +8,13 @@ const UploadImg = () => {
   
   const [file, setFile] = useState();
   const dispatch = useDispatch();
-  //on récupère dans le store toute la userData
+  // on récupère dans le store toute la userData
   const userData = useSelector((state) => state.userReducer);
 
   const handlePicture = (e) => {
     e.preventDefault();
     const data = new FormData();
-    //append pour ajouter du  contenu dans un tableau
+    // append pour ajouter du  contenu dans un tableau
     data.append("name", userData.pseudo);
     data.append("userId", userData._id);
     data.append("file", file);

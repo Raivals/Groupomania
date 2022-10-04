@@ -1,7 +1,7 @@
 import { GET_POSTS_ERRORS } from "../actions/post.actions";
 import { GET_USER_ERRORS } from "../actions/user.action";
 
-// Récupération de toutes les erreurs
+// Reducers de toutes les erreurs
 
 const initialState = { userError: [], postError : []};
 

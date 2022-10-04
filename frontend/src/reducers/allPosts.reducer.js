@@ -1,6 +1,6 @@
 import { GET_ALL_POSTS } from "../actions/post.actions";
 
-// Récupération de tous les posts
+// Reducer de tous les posts
 const initialState = {};
 
 export default function allPostsReducer(state = initialState, action) {

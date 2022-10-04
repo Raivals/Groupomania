@@ -37,6 +37,8 @@ export const getPosts = (num) => {
     };
 };
 
+// Ajout d'un nouveau post
+
 export const addPost = (data) => {
   return (dispatch) => {
       return axios({
@@ -56,8 +58,14 @@ export const addPost = (data) => {
   };
 }
 
-// Like / unlike
-
+/**
+ * Permet à un utilisateur de like un post en récupérant l'url post + l'id de l'utilisateur qui veut like le post.
+ * 
+ * Si tout se passse bien, autoriser le like du post
+ * @param {*} postId 
+ * @param {*} userId 
+ * @returns si il y a une erreur, catch l'erreur et log l'erreur en question.
+ */
 export const likePost = (postId, userId) => {
   return (dispatch) => {
     return axios({
@@ -72,7 +80,15 @@ export const likePost = (postId, userId) => {
       .catch((err) => console.log(err));
   };
 };
-  
+
+/**
+ * Permet à un utilisateur d'unlike un post en récupérant l'url post + l'id de l'utilisateur qui veut unlike le post.
+ * 
+ * Si tout se passse bien, autoriser l'unlike du post
+ * @param {*} postId 
+ * @param {*} userId 
+ * @returns si il y a une erreur, catch l'erreur et log l'erreur en question.
+ */
 export const unlikePost = (postId, userId) => {
   return (dispatch) => {
     return axios({
@@ -88,7 +104,14 @@ export const unlikePost = (postId, userId) => {
   };
 };
 
-// Update Post
+/**
+ * Permet à un utilisateur de mettre à jour un post en récupérant l'url post + l'id de l'utilisateur qui veut update le post.
+ * 
+ * Si tout se passse bien, autoriser l'update du post
+ * @param {*} postId 
+ * @param {*} message
+ * @returns si il y a une erreur, catch l'erreur et log l'erreur en question.
+ */
 
 export const updatePost = (postId, message) => {
   return (dispatch) => {
@@ -105,7 +128,13 @@ export const updatePost = (postId, message) => {
   };
 };
 
-// Delete post
+/**
+ * Permet à un utilisateur de supprimer un post en récupérant l'url post + l'id de l'utilisateur qui veut delete le post.
+ * 
+ * Si tout se passse bien, autoriser le delete du post
+ * @param {*} postId 
+ * @returns si il y a une erreur, catch l'erreur et log l'erreur en question.
+ */
 
 export const deletePost = (postId) => {
   return (dispatch) => {
@@ -121,8 +150,16 @@ export const deletePost = (postId) => {
   };
 };
 
-// Comments
-
+/**
+ * Permet à un utilisateur de commenter un post en récupérant l'url post + les infos de l'utilisateur qui veut commenter le post.
+ * 
+ * Si tout se passse bien, autoriser le delete du post
+ * @param {*} postId 
+ * @param {*} commenterId 
+ * @param {*} text 
+ * @param {*} commenterPseudo 
+ * @returns  si il y a une erreur, catch l'erreur et log l'erreur en question.
+ */
 export const addComment = (postId, commenterId, text, commenterPseudo) => {
   return (dispatch) => {
     return axios({
@@ -139,7 +176,15 @@ export const addComment = (postId, commenterId, text, commenterPseudo) => {
   };
 };
 
-// Modif comment
+/**
+ * Permet à un utilisateur de modifier un commentaire en récupérant l'id du post, l'id du commentaire + les infos de l'utilisateur qui veut éditer le commentaire.
+ *
+ * Si tout se passse bien, autoriser l'édition du commentaire
+ * @param {*} postId 
+ * @param {*} commentId 
+ * @param {*} text 
+ * @returns si il y a une erreur, catch l'erreur et log l'erreur en question.
+ */
 
 export const editComment = (postId, commentId, text) => {
   return (dispatch) => {
@@ -156,7 +201,14 @@ export const editComment = (postId, commentId, text) => {
   };
 };
 
-// Delete comment 
+/**
+ * Permet à un utilisateur de supprimer un commentaire en récupérant l'id du post, l'id du commentaire + les infos de l'utilisateur qui veut supprimer le commentaire.
+ *
+ * Si tout se passse bien, autoriser la suppression du commentaire
+ * @param {*} postId 
+ * @param {*} commentId 
+ * @returns si il y a une erreur, catch l'erreur et log l'erreur en question.
+ */
 
 export const deleteComment = (postId, commentId) => {
   return (dispatch) => {

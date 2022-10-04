@@ -1,6 +1,6 @@
 import { GET_USERS } from "../actions/users.actions";
 
-// Récupération de tous les utilisateurs
+// Reducers de tous les utilisateurs
 
 const initialState = {};
 

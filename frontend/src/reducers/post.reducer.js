@@ -1,5 +1,6 @@
 import { DELETE_COMMENT, DELETE_POST, EDIT_COMMENT, GET_POSTS, LIKE_POST, UNLIKE_POST, UPDATE_POST } from "../actions/post.actions";
 
+// Reducers des posts
 const initialState = {};
 
 export default function postReducer(state = initialState, action) {
