@@ -1,5 +1,5 @@
 import { GET_USER, UPDATE_BIO, UPLOAD_PICTURE } from "../actions/user.action";
-
+// Reducer user
 const initialState = {};
 
 export default function userReducer(state = initialState, action) {

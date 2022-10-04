@@ -16,7 +16,7 @@ const Thread = () => {
       setLoadPost(true);      
     }
   }
-
+  // Lorsqu'on arrive en bas de la page, charger 5 posts supplémentaires.
   useEffect(() => {
     if (loadPost) {
         dispatch(getPosts(count));
