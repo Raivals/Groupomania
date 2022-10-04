@@ -6,6 +6,9 @@ import { updatePost } from "../../actions/post.actions";
 import DeleteCard from "./DeleteCard";
 import CardComment from "./CardComment";
 import {  FaSpinner } from 'react-icons/fa';
+
+// Création du file d'actualité (Récupération des posts + Possibilité de créer un post)
+
 const Card = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isUpdated, setIsUpdated] = useState(false);

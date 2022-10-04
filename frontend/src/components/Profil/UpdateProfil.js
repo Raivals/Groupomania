@@ -6,6 +6,9 @@ import { useState } from 'react';
 import { updateBio } from '../../actions/user.action';
 import { dateParser } from '../Utils';
 
+
+// Modifier le profil 
+
 const  UpdateProfil = () => {
   const [bio, setBio] = useState("");
   const [updateForm, setUpdateForm] = useState(false);

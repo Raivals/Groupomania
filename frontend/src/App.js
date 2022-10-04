@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user.action";
 
 
-
+// Récupération de l'API + initialise redux pour l'ensemble de l'appli 
 
 const App = ()=> {
   const[uid, setUid] = useState(null);

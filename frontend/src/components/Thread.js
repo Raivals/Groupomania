@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from "./Utils";
 import Card from './Post/Card';
 
+// Détail du infinite scroll 
+
 const Thread = () => {
   const [loadPost, setLoadPost] = useState(true);
   const [count, setCount] = useState(5);

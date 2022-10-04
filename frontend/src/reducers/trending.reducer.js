@@ -1,5 +1,7 @@
 import { GET_TRENDS } from "../actions/post.actions";
 
+// Récupération des trends
+
 const initialState = {};
 
 export default function trendingReducer(state = initialState, action) {

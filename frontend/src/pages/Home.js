@@ -6,6 +6,8 @@ import Thread from '../components/Thread';
 import Log from '../components/Log';
 import Trends from '../components/Trends';
 
+// Structure de la page Home
+
 const Home = () => {
   const uid = useContext(UidContext);
   return (

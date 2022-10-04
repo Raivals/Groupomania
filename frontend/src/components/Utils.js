@@ -1,3 +1,4 @@
+// Gestion de la date et heure 
 export const dateParser = (num) => {
     let options = {weekday: "long", year: "numeric", month: "short", day: "numeric"};
 

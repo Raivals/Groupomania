@@ -52,6 +52,8 @@ export const uploadPicture = (data, id) => {
   };
 };
 
+// Mise à jour bio 
+
 export const updateBio = (userId, bio) => {
   return (dispatch) => {
     return axios({

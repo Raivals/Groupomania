@@ -3,6 +3,8 @@ import { UidContext } from "../AppContext";
 import { useDispatch } from "react-redux";
 import { likePost, unlikePost } from "../../actions/post.actions";
 
+// Like ou unlike un post 
+
 const LikeButton = ({ post }) => {
 
   const [liked, setLiked] = useState(false);
