@@ -3,11 +3,26 @@ const ObjectID = require("mongoose").Types.ObjectId;
 const fs = require("fs");
 const filesDestination = `${__dirname}/../uploads`;
 
+/**
+ * Récupération de tous les utilisateurs & leurs email / masssword hash
+ * 
+ * Si tout se passe bien, permettre la récupération des infos utilisateurs.
+ * @param {*} req 
+ * @param {*} res 
+ */
 exports.getAllUsers = async (req, res) => {
   const users = await UserModel.find().select("-password -email");
   res.status(200).json(users);
 };
 
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et la modif du commentaire'.
+ * 
+ * Si tout se passe bien, permettre la récupération d'un utilisateur spécifique.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.getOneUser = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
@@ -17,6 +32,7 @@ exports.getOneUser = (req, res) => {
     else console.log("ID unknown : " + err);
   }).select("-password -email");
 };
+
 exports.uploadProfil = async (req, res) => {
   try {
     await UserModel.findByIdAndUpdate(
@@ -36,6 +52,15 @@ exports.uploadProfil = async (req, res) => {
     return res.status(500).send({ message: err });
   }
 }
+
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et la mise à jour d'un profil utilisateur.
+ * 
+ * Si tout se passe bien, permettre la modification du profil.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.updateUser = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
@@ -56,6 +81,14 @@ exports.updateUser = async (req, res) => {
   }
 };
 
+/**
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et la suppression du profil'.
+ * 
+ * Si tout se passe bien, permettre la suppression du profil.
+ * @param {*} req 
+ * @param {*} res 
+ * @returns Si l'object id n'est pas valdie, renvoyer une erreur 400 au client.
+ */
 exports.deleteUser = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
