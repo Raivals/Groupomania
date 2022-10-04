@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../actions/post.actions";
 
+// Supprimer un post
 //la props deletecard ne contient que la prosp .id
 const DeleteCard = (props)=> {
   const dispatch = useDispatch();

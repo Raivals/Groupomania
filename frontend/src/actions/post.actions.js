@@ -20,7 +20,7 @@ export const GET_TRENDS = "GET_TRENDS";
 // Errors
 export const GET_POSTS_ERRORS = "GET_POSTS_ERRORS";
 
-// Get post réçoit un numéro (pour infinite scroll)
+// Get post reçoit un numéro (pour infinite scroll)
 export const getPosts = (num) => {
   return (dispatch) => {
       return axios({

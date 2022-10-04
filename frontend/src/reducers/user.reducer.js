@@ -1,5 +1,7 @@
 import { GET_USER, UPDATE_BIO, UPLOAD_PICTURE } from "../actions/user.action";
 
+// Reducers partie Profil (upload img update bio et récup utilisateur)
+
 const initialState = {};
 
 export default function userReducer(state = initialState, action) {

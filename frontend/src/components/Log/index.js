@@ -17,6 +17,8 @@ const Log = ( props ) => {
     }
   }
 
+  // Formulaire  de connexion
+
   return (
     <div className='connection-form'>
         <div className='form-container'>
