@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTrends } from "../actions/post.actions";
 import { isEmpty } from "./Utils";
 
+// Structure de la case Trending
 
 const Trends = () => {
   const posts = useSelector((state) => state.allPostsReducer);

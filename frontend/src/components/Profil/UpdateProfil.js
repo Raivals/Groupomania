@@ -5,7 +5,7 @@ import UploadImg from './UploadImg';
 import { useState } from 'react';
 import { updateBio } from '../../actions/user.action';
 import { dateParser } from '../Utils';
-
+// Mise à jour du profil
 const  UpdateProfil = () => {
   const [bio, setBio] = useState("");
   const [updateForm, setUpdateForm] = useState(false);

@@ -4,6 +4,7 @@ import { UidContext } from '../components/AppContext';
 // affichage image pb avec svg ?
 import image from '../assets/img/login.jpg'
 import UpdateProfil from '../components/Profil/UpdateProfil';
+// Structure de la page profil
 const Profil = () => {
 // Obteniir l'id utilisateur si celui ci est connecté
 const uid = useContext(UidContext);

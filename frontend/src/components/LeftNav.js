@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-
+// Barre de navigation gauche
 const LeftNav = () => {
   return (
     <div className='left-nav-container'>

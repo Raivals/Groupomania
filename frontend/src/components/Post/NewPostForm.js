@@ -5,6 +5,7 @@ import {  FaSpinner } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { addPost, getPosts } from "../../actions/post.actions";
 
+// Nouveau post 
 const NewPostForm = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");

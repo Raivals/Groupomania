@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addComment, getPosts } from "../../actions/post.actions";
 import { isEmpty, timestampParser } from "../Utils";
 import EditDeleteComment from "./EditDeleteComment";
-
+ // Affichage de la partie commentaire
 const CardComments = ({post})=> {
     const [text, setText] = useState("")
     const usersData = useSelector((state) => state.usersReducer)

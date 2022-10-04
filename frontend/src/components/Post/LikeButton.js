@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { UidContext } from "../AppContext";
 import { useDispatch } from "react-redux";
 import { likePost, unlikePost } from "../../actions/post.actions";
-
+// Affichage fonctionnalité like
 const LikeButton = ({ post }) => {
 
   const [liked, setLiked] = useState(false);

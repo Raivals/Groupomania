@@ -3,7 +3,7 @@ import { getPosts } from '../actions/post.actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from "./Utils";
 import Card from './Post/Card';
-
+// Fil d'actualité 
 const Thread = () => {
   const [loadPost, setLoadPost] = useState(true);
   const [count, setCount] = useState(5);

@@ -2,7 +2,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../actions/post.actions";
-
+// Affichage de l'option supprimer
 //la props deletecard ne contient que la prosp .id
 const DeleteCard = (props)=> {
   const dispatch = useDispatch();

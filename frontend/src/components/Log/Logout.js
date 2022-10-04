@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import cookie from 'js-cookie';
-
+// Déconnexion, supresssion du cookie et déconnexion
 const Logout = () => {
 
     const removeCookie = (key) => {
