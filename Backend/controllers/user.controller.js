@@ -81,7 +81,7 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-/**
+/**f
  * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et la suppression du profil'.
  * 
  * Si tout se passe bien, permettre la suppression du profil.
