@@ -4,7 +4,7 @@ const fs = require("fs");
 const filesDestination = `${__dirname}/../uploads`;
 
 /**
- * Récupération de tous les utilisateurs & leurs email / masssword hash
+ * Récupération de tous les utilisateurs & leurs email / passsword hash
  * 
  * Si tout se passe bien, permettre la récupération des infos utilisateurs.
  * @param {*} req 
@@ -16,7 +16,7 @@ exports.getAllUsers = async (req, res) => {
 };
 
 /**
- * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et la modif du commentaire'.
+ * Vérification de l'Object id pour voir la correspondance entre l'utilisateur et la modif du commentaire.
  * 
  * Si tout se passe bien, permettre la récupération d'un utilisateur spécifique.
  * @param {*} req 

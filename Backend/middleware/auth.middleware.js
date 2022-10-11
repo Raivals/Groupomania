@@ -32,9 +32,9 @@ exports.checkUser = (req, res, next) => {
 
 
 /**
- *  Vérifie si le token si un token a été attribué à un client 
+ *  Vérifie si le token a été attribué à un client 
  * 
- * Si ilm n'y a pas de token, renvoyer une erreur 200 au client "No token"
+ * Si il n'y a pas de token, renvoyer une erreur 200 au client "No token"
  * @param {*} req 
  * @param {*} res 
  * @param {*} next 
