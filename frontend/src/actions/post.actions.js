@@ -205,7 +205,7 @@ export const editComment = (postId, commentId, text) => {
 /**
  * Permet à un utilisateur de supprimer un commentaire en récupérant l'id du post, l'id du commentaire + les infos de l'utilisateur qui veut supprimer le commentaire.
  *
- * Si tout se passse bien, autoriser la suppression du commentaire
+ * Si tout se passe bien, autoriser la suppression du commentaire
  * @param {*} postId 
  * @param {*} commentId 
  * @returns si il y a une erreur, catch l'erreur et log l'erreur en question.
